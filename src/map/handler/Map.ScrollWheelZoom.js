@@ -32,7 +32,7 @@ L.Map.ScrollWheelZoom = L.Handler.extend({
 
 		delta = delta > 0 ? 1 : -1;
 
-		map.setZoomAround(this._lastMousePos, zoom + delta);
+		map.setZoomAround(mousePos, zoom + delta);
 	}
 });
 
