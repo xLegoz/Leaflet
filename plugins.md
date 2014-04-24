@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: v2
 title: Plugins
 ---
 
@@ -8,6 +8,99 @@ title: Plugins
 While Leaflet is meant to be as lightweight as possible, and focuses on a core set of features, an easy way to extend its functionality is to use third-party plugins. Thanks to the awesome community behind Leaflet, there are lots of nice plugins to choose from.
 
 ---
+
+### Featured Plugins
+
+The most useful and popular Leaflet plugins.
+
+<table class="plugins">
+	<tr>
+		<th>Plugin</th>
+		<th>Description</th>
+		<th>Maintainer</th>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://github.com/Leaflet/Leaflet.markercluster">Leaflet.markercluster</a>
+		</td><td>
+			Beautiful, sophisticated, high performance marker clustering solution with smooth animations and lots of great features.
+		</td><td>
+			<a href="https://github.com/danzel">Dave Leaver</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://github.com/Leaflet/Leaflet.draw">Leaflet.draw</a>
+		</td><td>
+			Enables drawing features like polylines, polygons, rectangles, circles and markers through a very nice user-friendly interface with icons and hints.
+		</td><td>
+			<a href="https://github.com/jacobtoye">Jacob Toye</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://github.com/mlevans/leaflet-hash">leaflet-hash</a>
+		</td><td>
+			Plugin for persisting map state and browsing history through the URL hash.
+		</td><td>
+			<a href="https://github.com/mlevans">Michael L Evans</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://github.com/Leaflet/Leaflet.fullscreen">Leaflet.fullscreen</a>
+		</td><td>
+			A fullscreen button.
+		</td><td>
+			<a href="https://github.com/mapbox">Mapbox</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://github.com/Leaflet/Leaflet.label">Leaflet.label</a>
+		</td><td>
+			Adds text labels to map markers and vector layers.
+		</td><td>
+			<a href="https://github.com/jacobtoye">Jacob Toye</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://github.com/Norkart/Leaflet-MiniMap">Leaflet.MiniMap</a>
+		</td><td>
+			A small minimap showing the map at a different scale to aid navigation.
+		</td><td>
+			<a href="https://github.com/robpvn">Robert Nordan</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://github.com/domoritz/leaflet-locatecontrol">Leaflet.Locate</a>
+		</td><td>
+			A customizable button that finds user's location.
+		</td><td>
+			<a href="https://github.com/domoritz">Dominik Moritz</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="https://github.com/Leaflet/Leaflet.heat">Leaflet.heat</a>
+		</td><td>
+			A plugin for turning sets of points into heatmaps.
+		</td><td>
+			<a href="https://github.com/mourner">Vladimir Agafonkin</a>
+		</td>
+	</tr>
+    <tr>
+		<td>
+			<a href="https://github.com/mapbox/leaflet-omnivore">leaflet-omnivore</a>
+		</td><td>
+			Loads & converts CSV, KML, GPX, TopoJSON, WKT formats for Leaflet.
+		</td><td>
+			<a href="https://github.com/mapbox">Mapbox</a>
+		</td>
+	</tr>
+</table>
 
 ### Layers and Overlays
 
@@ -21,7 +114,7 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 		<td>
 			<a href="https://github.com/jdfergason/Leaflet.Ellipse">Leaflet.ellipse</a>
 		</td><td>
-			Leaflet.ellipse place ellipses on map by specifying center point, semi-major axis, 
+			Leaflet.ellipse place ellipses on map by specifying center point, semi-major axis,
 			semi-minor axis, and tilt degrees from west.
 		</td><td>
 			<a href="https://github.com/jdfergason">JD Fergason</a>
@@ -34,24 +127,6 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 			leaflet-plotter allows you to create routes using a leaflet powered map. You can click on the mid-points to create a new, draggable point.
 		</td><td>
 			<a href="https://github.com/scripter-co">Nathan Mahdavi</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://github.com/Leaflet/Leaflet.markercluster">Leaflet.markercluster</a>
-		</td><td>
-			Beautiful, sophisticated, high performance marker clustering solution with smooth animations and lots of great features. <em>Recommended!</em>
-		</td><td>
-			<a href="https://github.com/danzel">Dave Leaver</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://github.com/Leaflet/Leaflet.label">Leaflet.label</a>
-		</td><td>
-			Adds text labels to map markers and vector layers.
-		</td><td>
-			<a href="https://github.com/jacobtoye">Jacob Toye</a>
 		</td>
 	</tr>
 	<tr>
@@ -222,7 +297,7 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 	</tr>
 	<tr>
 		<td>
-			<a href="http://humangeo.github.com/leaflet-dvf/">Leaflet Data Visualization Framework</a>
+			<a href="http://humangeo.github.com/leaflet-dvf/">Leaflet Data Vis Framework</a>
 		</td><td>
 			New markers, layers, and utility classes for easy thematic mapping and data visualization.
 		</td><td>
@@ -351,15 +426,6 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 		</td><td>Add WMTS (IGN) layering for leaflet.
 		</td><td>
 			<a href="https://github.com/mylen">Alexandre Melard</a>
-		</td>
-	</tr>
-    <tr>
-		<td>
-			<a href="https://github.com/mapbox/leaflet-omnivore">leaflet-omnivore</a>
-		</td><td>
-			Loads & converts CSV, KML, GPX, TopoJSON, WKT formats for Leaflet.
-		</td><td>
-			<a href="https://github.com/mapbox">Mapbox</a>
 		</td>
 	</tr>
 	<tr>
@@ -626,15 +692,6 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 	</tr>
 	<tr>
 		<td>
-			<a href="https://github.com/Leaflet/Leaflet.draw">Leaflet.draw</a>
-		</td><td>
-			Enables drawing features like polylines, polygons, rectangles, circles and markers through a very nice user-friendly interface with icons and hints. <em>Recommended!</em>
-		</td><td>
-			<a href="https://github.com/jacobtoye">Jacob Toye</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
 			<a href="https://github.com/danzel/Leaflet.utfgrid">Leaflet.utfgrid</a>
 		</td><td>
 			Provides a utfgrid interaction handler for leaflet a very small footprint.
@@ -667,24 +724,6 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 			A zoom slider control.
 		</td><td>
 			<a href="http://www.kartena.se/">Kartena</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://github.com/domoritz/leaflet-locatecontrol">Leaflet.Locate</a>
-		</td><td>
-			A customizable locate control.
-		</td><td>
-			<a href="https://github.com/domoritz">Dominik Moritz</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://github.com/mapbox/Leaflet.fullscreen">Leaflet.fullscreen</a>
-		</td><td>
-			A fullscreen button control by mapbox
-		</td><td>
-			<a href="https://github.com/mapbox">mapbox</a>
 		</td>
 	</tr>
 	<tr>
@@ -730,15 +769,6 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 			A draggable/resizable rectangle for selecting an area on the map.
 		</td><td>
 			<a href="https://github.com/kajic">Robert Kajic</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://github.com/Norkart/Leaflet-MiniMap">Leaflet.MiniMap</a>
-		</td><td>
-			A small minimap showing the map at a different scale to aid navigation.
-		</td><td>
-			<a href="https://github.com/robpvn">Robert Nordan</a>
 		</td>
 	</tr>
 	<tr>
@@ -1059,15 +1089,6 @@ While Leaflet is meant to be as lightweight as possible, and focuses on a core s
 			A WordPress plugin that enables users to pin, organize and share their favorite places and tracks through their WordPress powered site.
 		</td><td>
 			<a href="http://www.harm.co.at/">Robert Harm</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href="https://github.com/mlevans/leaflet-hash">leaflet-hash</a>
-		</td><td>
-			Plugin for persisting map state and browsing history through the URL hash.
-		</td><td>
-			<a href="https://github.com/mlevans">Michael Lawrence Evans</a>
 		</td>
 	</tr>
 	<tr>
