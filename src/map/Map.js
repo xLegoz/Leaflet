@@ -545,7 +545,7 @@ L.Map = L.Evented.extend({
 		return this.fire('movestart');
 	},
 
-	_move: function (center, zoom) {
+	_move: function (center, zoom, data) {
 		if (zoom === undefined) {
 			zoom = this._zoom;
 		}
@@ -557,9 +557,9 @@ L.Map = L.Evented.extend({
 		this._pixelOrigin = this._getNewPixelOrigin(center);
 
 		if (zoomChanged) {
-			this.fire('zoom');
+			this.fire('zoom', data);
 		}
-		return this.fire('move');
+		return this.fire('move', data);
 	},
 
 	_moveEnd: function (zoomChanged) {
@@ -714,8 +714,7 @@ L.Map = L.Evented.extend({
 
 	_getNewPixelOrigin: function (center, zoom) {
 		var viewHalf = this.getSize()._divideBy(2);
-		// TODO round on display, not calculation to increase precision?
-		return this.project(center, zoom)._subtract(viewHalf)._add(this._getMapPanePos())._round();
+		return this.project(center, zoom)._subtract(viewHalf)._add(this._getMapPanePos());
 	},
 
 	_latLngToNewLayerPoint: function (latlng, zoom, center) {
