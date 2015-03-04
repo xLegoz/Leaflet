@@ -60,7 +60,7 @@ L.Map.TouchZoom = L.Handler.extend({
 			this._center = map.containerPointToLatLng(map.latLngToContainerPoint(this._startCenter).subtract(delta));
 		}
 
-		if (scale === 1 && delta.x === 0 && delta.y === 0) return;
+		if (scale === 1 && delta.x === 0 && delta.y === 0) { return; }
 
 		if (!map.options.bounceAtZoomLimits) {
 			if ((this._zoom <= map.getMinZoom() && scale < 1) ||
