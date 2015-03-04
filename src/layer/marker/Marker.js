@@ -41,7 +41,7 @@ L.Marker = L.Layer.extend({
 	},
 
 	getEvents: function () {
-		var events = {zoomend: this.update};
+		var events = {zoom: this.update};
 
 		if (this._zoomAnimated) {
 			events.zoomanim = this._animateZoom;
