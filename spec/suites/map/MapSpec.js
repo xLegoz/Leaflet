@@ -590,4 +590,39 @@ describe("Map", function () {
 
 	});
 
+	describe('#DOM events', function () {
+
+		var c, map;
+
+		beforeEach(function () {
+			c = document.createElement('div');
+			c.style.width = '400px';
+			c.style.height = '400px';
+			map = new L.Map(c);
+			map.setView(new L.LatLng(0, 0), 0);
+			document.body.appendChild(c);
+		});
+
+		afterEach(function () {
+			document.body.removeChild(c);
+		});
+
+		it("fire DOM events even on a polygon", function () {
+			var spy = sinon.spy();
+			map.on("mouseover", spy);
+			var layer = new L.Polygon([[1, 2], [3, 4], [5, 6]]).addTo(map);
+			happen.mouseover(layer._path);
+			expect(spy.calledOnce).to.be.ok();
+		});
+
+		it("fire DOM events even on a marker", function () {
+			var spy = sinon.spy();
+			map.on("mouseover", spy);
+			var layer = new L.Marker([1, 2]).addTo(map);
+			happen.mouseover(layer._icon);
+			expect(spy.calledOnce).to.be.ok();
+		});
+
+	});
+
 });

@@ -585,7 +585,10 @@ L.Map = L.Evented.extend({
 			L.DomUtil.preventOutline(e.target || e.srcElement);
 		}
 
-		this._fireDOMEvent(target || this, e, type);
+		if (target && target !== this) {
+			this._fireDOMEvent(target, e, type);
+		}
+		this._fireDOMEvent(this, e, type);
 	},
 
 	_fireDOMEvent: function (target, e, type) {
