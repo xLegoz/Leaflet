@@ -607,7 +607,7 @@ describe("Map", function () {
 			document.body.removeChild(c);
 		});
 
-		it("fire DOM events even on a polygon", function () {
+		it("DOM events propagate from polygon to map", function () {
 			var spy = sinon.spy();
 			map.on("mouseover", spy);
 			var layer = new L.Polygon([[1, 2], [3, 4], [5, 6]]).addTo(map);
@@ -615,12 +615,23 @@ describe("Map", function () {
 			expect(spy.calledOnce).to.be.ok();
 		});
 
-		it("fire DOM events even on a marker", function () {
+		it("DOM events propagate from marker to map", function () {
 			var spy = sinon.spy();
 			map.on("mouseover", spy);
 			var layer = new L.Marker([1, 2]).addTo(map);
 			happen.mouseover(layer._icon);
 			expect(spy.calledOnce).to.be.ok();
+		});
+
+		it("DOM events fired on marker can be cancelled before being catch by the map", function () {
+			var mapSpy = sinon.spy();
+			var layerSpy = sinon.spy();
+			map.on("mouseover", mapSpy);
+			var layer = new L.Marker([1, 2]).addTo(map);
+			layer.on("mouseover", L.DomEvent.stopPropagation).on("mouseover", layerSpy);
+			happen.mouseover(layer._icon);
+			expect(layerSpy.calledOnce).to.be.ok();
+			expect(mapSpy.called).not.to.be.ok();
 		});
 
 	});
