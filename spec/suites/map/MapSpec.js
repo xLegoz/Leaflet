@@ -623,7 +623,7 @@ describe("Map", function () {
 			expect(spy.calledOnce).to.be.ok();
 		});
 
-		it("DOM events fired on marker can be cancelled before being catch by the map", function () {
+		it("DOM events fired on marker can be cancelled before being caught by the map", function () {
 			var mapSpy = sinon.spy();
 			var layerSpy = sinon.spy();
 			map.on("mouseover", mapSpy);

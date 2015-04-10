@@ -608,7 +608,9 @@ L.Map = L.Evented.extend({
 		if (target && target !== this) {
 			this._fireDOMEvent(target, e, type);
 		}
-		this._fireDOMEvent(this, e, type);
+		if (!L.DomEvent._skipped(e)) {  // In case the Leaflet event has been stopped on some target listener.
+			this._fireDOMEvent(this, e, type);
+		}
 	},
 
 	_fireDOMEvent: function (target, e, type) {
