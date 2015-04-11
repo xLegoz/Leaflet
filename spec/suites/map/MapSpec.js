@@ -609,29 +609,59 @@ describe("Map", function () {
 
 		it("DOM events propagate from polygon to map", function () {
 			var spy = sinon.spy();
-			map.on("mouseover", spy);
+			map.on("mousemove", spy);
 			var layer = new L.Polygon([[1, 2], [3, 4], [5, 6]]).addTo(map);
-			happen.mouseover(layer._path);
+			happen.mousemove(layer._path);
 			expect(spy.calledOnce).to.be.ok();
 		});
 
 		it("DOM events propagate from marker to map", function () {
 			var spy = sinon.spy();
-			map.on("mouseover", spy);
+			map.on("mousemove", spy);
 			var layer = new L.Marker([1, 2]).addTo(map);
-			happen.mouseover(layer._icon);
+			happen.mousemove(layer._icon);
 			expect(spy.calledOnce).to.be.ok();
 		});
 
 		it("DOM events fired on marker can be cancelled before being caught by the map", function () {
 			var mapSpy = sinon.spy();
 			var layerSpy = sinon.spy();
-			map.on("mouseover", mapSpy);
+			map.on("mousemove", mapSpy);
 			var layer = new L.Marker([1, 2]).addTo(map);
-			layer.on("mouseover", L.DomEvent.stopPropagation).on("mouseover", layerSpy);
-			happen.mouseover(layer._icon);
+			layer.on("mousemove", L.DomEvent.stopPropagation).on("mousemove", layerSpy);
+			happen.mousemove(layer._icon);
 			expect(layerSpy.calledOnce).to.be.ok();
 			expect(mapSpy.called).not.to.be.ok();
+		});
+
+		it("mouseout is only forwared if fired on the original target", function () {
+			var mapSpy = sinon.spy(),
+				layerSpy = sinon.spy(),
+				otherSpy = sinon.spy();
+			var layer = new L.Polygon([[1, 2], [3, 4], [5, 6]]).addTo(map);
+			var other = new L.Polygon([[10, 20], [30, 40], [50, 60]]).addTo(map);
+			map.on("mouseout", mapSpy);
+			layer.on("mouseout", layerSpy);
+			other.on("mouseout", otherSpy);
+			happen.mouseout(layer._path);
+			expect(mapSpy.called).not.to.be.ok();
+			expect(otherSpy.called).not.to.be.ok();
+			expect(layerSpy.calledOnce).to.be.ok();
+		});
+
+		it("mouseout is not forwared to layers if fired on the map", function () {
+			var mapSpy = sinon.spy(),
+				layerSpy = sinon.spy(),
+				otherSpy = sinon.spy();
+			var layer = new L.Polygon([[1, 2], [3, 4], [5, 6]]).addTo(map);
+			var other = new L.Polygon([[10, 20], [30, 40], [50, 60]]).addTo(map);
+			map.on("mouseout", mapSpy);
+			layer.on("mouseout", layerSpy);
+			other.on("mouseout", otherSpy);
+			happen.mouseout(map._container);
+			expect(otherSpy.called).not.to.be.ok();
+			expect(layerSpy.called).not.to.be.ok();
+			expect(mapSpy.calledOnce).to.be.ok();
 		});
 
 	});
