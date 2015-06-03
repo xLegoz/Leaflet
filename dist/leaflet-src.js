@@ -3910,6 +3910,12 @@ L.Popup = L.Class.extend({
 	},
 
 	onRemove: function (map) {
+		map.fire('popupbeforeclose', {popup: this});
+
+		if (this._source) {
+			this._source.fire('popupbeforeclose', {popup: this});
+		}
+
 		map._panes.popupPane.removeChild(this._container);
 
 		L.Util.falseFn(this._container.offsetWidth); // force reflow
